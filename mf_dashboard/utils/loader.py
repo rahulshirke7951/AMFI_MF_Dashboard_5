@@ -126,9 +126,16 @@ def _enrich(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_excel(file) -> tuple[pd.DataFrame, pd.DataFrame]:
-    xl       = pd.ExcelFile(file)
-    df       = pd.read_excel(xl, sheet_name="Active_Analytics")
-    df       = _enrich(df)
+    xl = pd.ExcelFile(file)
+    df = pd.read_excel(xl, sheet_name="Active_Analytics")
+
+    df = _enrich(df)
+
+    # 🔒 HARD LOCK — Only Open Ended Schemes
+    df = df[df["cat_level_1"] == "Open Ended Schemes"]
+
+    # 🧹 Drop Level 1 permanently (no longer needed)
+    df = df.drop(columns=["cat_level_1"])
     stale_df = pd.DataFrame()
     if "Full_Audit_Trail" in xl.sheet_names:
         audit    = pd.read_excel(xl, sheet_name="Full_Audit_Trail")
