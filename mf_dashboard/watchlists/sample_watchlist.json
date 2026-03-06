@@ -1,0 +1,18 @@
+{
+  "Core Portfolio": {
+    "description": "Long-term wealth creation — diversified across large and flexi cap",
+    "scheme_codes": ["100001", "100003", "100004", "100007", "100008"]
+  },
+  "Momentum Picks": {
+    "description": "High recent momentum — mid and small cap focus",
+    "scheme_codes": ["100005", "100006", "100010", "100011", "100018"]
+  },
+  "Sectoral Bets": {
+    "description": "Tactical allocation to high-growth sectors",
+    "scheme_codes": ["100016", "100017", "100023", "100024", "100025"]
+  },
+  "ELSS & Tax Saving": {
+    "description": "80C eligible schemes",
+    "scheme_codes": ["100015"]
+  }
+}
